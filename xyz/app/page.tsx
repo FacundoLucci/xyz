@@ -8,7 +8,7 @@ export default function Home() {
           Facundo Lucci
         </h1>
         <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-          Current work in progress 🚧. Find me at x.com/facundolucci.
+          Current work in progress. Find me at x.com/facundolucci.
         </p>
       </div>
     </main>
