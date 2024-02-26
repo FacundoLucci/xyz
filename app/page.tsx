@@ -7,9 +7,10 @@ export default function Home() {
         <h1 className="text-4xl font-bold text-center">
           Facundo Lucci
         </h1>
-        <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
+        <p className={`m-0 max-w-[30ch] text-sm text-stone-300 text-balance`}>
           Current work in progress. 
-          Find me at x.com/facundolucci.
+          <br />
+          Find me at <a className={'underline text-blue-200 hover:text-blue-300 visited:text-stone-500'} href="https://x.com/facundolucci">x.com/facundolucci</a>.
         </p>
       </div>
     </main>
