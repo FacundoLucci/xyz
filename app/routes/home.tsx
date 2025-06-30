@@ -1,5 +1,5 @@
 import type { Route } from "./+types/home";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Cal, { getCalApi } from "@calcom/embed-react";
 
 export function meta({}: Route.MetaArgs) {
@@ -19,64 +19,95 @@ const projects = [
   {
     id: 1,
     title: "Enterprise Logistics Scheduling",
+    subtitle: "The Patton Logistics Group",
     image: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/cdn-cgi/image/w=384,h=486,f=auto,dpr=2,fit=contain/f1743863279946x634660162926595100/wtc-425-trucks-march-2020.jpg",
-    type: "Bubble App"
+    type: "Bubble App",
+    liveUrl: "https://app.thepattonlogisticsgroup.com/",
+    role: "Sole Developer / Designer",
+    outcome: "The Patton Logistics groups manages a fleet of 1000 trucks and even more staff. Leveraging bubble's no-code platform has allowed them to save over $100,000 in traditional development costs. This project includes five apps built to manage bookings, reserve warehouses, track shipments, process support tickets, and submit work orders for maintenance. The ticketing system includes inbound email parsing allowing unified multichannel communication."
   },
   {
     id: 2,
-    title: "Neighborhood Social Network", 
+    title: "Neighborhood Social Network",
+    subtitle: "Common Agency LLC",
     image: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/cdn-cgi/image/w=384,h=437,f=auto,dpr=2,fit=contain/f1743880346577x216604651722887230/metuchen%20market%20photo.png",
-    type: "Bubble App"
+    type: "Bubble App",
+    liveUrl: "",
+    role: "Sole Developer",
+    outcome: "Stone Soup Neighbors is a neighborhood networking app designed to engage residents, create connections, and use technology to encourage real-world relationships between neighbors. My client quickly outgrew their original system, featuring Airtable and Twilio, and now uses bubble to quickly iterate on user features and feedback. Stone Soup Neighbors currently has four cities onboarded, with recruitment for additional communities underway. The app is available on the web, iOS and Android, and is in active development."
   },
   {
     id: 3,
     title: "AI social media scheduling for churches",
+    subtitle: "ChurchSocial",
     image: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/cdn-cgi/image/w=384,h=486,f=auto,dpr=2,fit=contain/f1743956513103x552707822922489800/654589c16c48c3bd19a7046f_solen-feyissa-KWZa42a1kds-unsplash.jpg",
-    type: "Bubble App"
+    type: "Bubble App",
+    liveUrl: "https://www.churchsocial.ai/",
+    role: "Project Manager / Developer",
+    outcome: "During my time with Revido, a Gold Tier bubble agency, I was the PM and developer for Discipls.io — a full social media scheduling solution. With built-in AI generation, content creation was made accessible to users new to social media. Since handover, the client has successful rebranded, expanded clientele and feature set, and has received multiple VC offers."
   },
   {
     id: 4,
     title: "Local Shows Finder",
-    image: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/cdn-cgi/image/w=384,h=437,f=auto,dpr=2,fit=contain/f1743881049130x514460294637654200/Best_Practices_For_Vocal_Mics_On_Stage.webp", 
-    type: "Bubble App"
+    subtitle: "MrKnowShows",
+    image: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/cdn-cgi/image/w=384,h=437,f=auto,dpr=2,fit=contain/f1743881049130x514460294637654200/Best_Practices_For_Vocal_Mics_On_Stage.webp",
+    type: "Bubble App",
+    liveUrl: "https://mrknowshows.com/",
+    role: "Developer",
+    outcome: "This event discovery app was created to simplify finding local music and comedy shows on any given night. Provided with a Figma file and CSV data from a scraper, I integrated the Spotify API to deliver song previews of featured artists. Built exclusively for mobile and faithfully replicating the original designs, the app remains in active operation."
   },
   {
     id: 5,
     title: "Video Sharing Alternative to Loom",
+    subtitle: "WATCHLINK",
     image: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/cdn-cgi/image/w=384,h=486,f=auto,dpr=2,fit=contain/f1743958826797x342685973380831900/play-button-black-glyph-ui-icon-vector-43339697.jpg",
-    type: "Code"
+    type: "Code",
+    liveUrl: "https://watchl.ink",
+    role: "Developer / Founder",
+    outcome: "Watchlink is a free video hosting solution designed to challenge Loom's pricing model. By introducing an expiration date for each video, users can upload as many videos as needed without worrying about quotas. It features built-in AI transcription and auto-subtitle generation, and is built on TanStack Start with deployment on Vercel."
   },
   {
     id: 6,
     title: "Dark Mode for Bubble",
+    subtitle: "Color Mode Plugin",
     image: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/f1743881570673x920674253244385700/Color%20Mode%20plugin%20logo.svg",
-    type: "Plugin"
+    type: "Plugin",
+    liveUrl: "",
+    role: "Plugin Developer",
+    outcome: "The most popular dark mode solution for Bubble applications. Supports automatic theme switching, custom color schemes, and seamless integration. Downloaded by over 1,000 developers and implemented across hundreds of Bubble apps worldwide."
   },
   {
     id: 7,
-    title: "SPA Navigation", 
+    title: "SPA Navigation",
+    subtitle: "Path Navigation Plugin",
     image: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/f1743955475259x323940674476416200/path-nav-plugin-logo.svg",
-    type: "Plugin"
+    type: "Plugin",
+    liveUrl: "",
+    role: "Plugin Developer / UX Designer",
+    outcome: "Revolutionary single-page application navigation for Bubble apps. Enables instant page transitions without refreshes, improving user experience dramatically. Used by enterprise clients to create app-like experiences within their Bubble applications."
   }
 ];
 
 const techStack = [
-  { name: "Bubble", logo: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/cdn-cgi/image/w=64,h=64,f=auto,dpr=2,fit=contain/f1743954355106x232441504701089060/bubble-logo.png" },
-  { name: "Cloudflare", logo: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/cdn-cgi/image/w=64,h=64,f=auto,dpr=2,fit=contain/f1743954637429x684379069250060600/cloudflare-workers-logo-png_seeklogo-444232.png" },
-  { name: "Discord", logo: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/cdn-cgi/image/w=64,h=64,f=auto,dpr=2,fit=contain/f1743955180164x306016823989893060/discord-logo.png" },
-  { name: "Linear", logo: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/cdn-cgi/image/w=64,h=64,f=auto,dpr=2,fit=contain/f1743955247012x603501134911924100/linear-app-icon-logo-png_seeklogo-586481.png" },
-  { name: "Next.js", logo: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/f1743954043060x424209555028934200/nextjs-icon-dark-background.svg" },
-  { name: "Node.js", logo: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/cdn-cgi/image/w=64,h=64,f=auto,dpr=2,fit=contain/f1743955045542x500418995156826300/node-js-icon-1817x2048-g8tzf91e.png" },
-  { name: "React", logo: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/f1743953825930x966293244681417900/React-icon.svg" },
-  { name: "Slack", logo: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/f1743953791829x929167476871797600/Slack_icon_2019.svg.png" },
   { name: "TanStack", logo: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/cdn-cgi/image/w=64,h=64,f=auto,dpr=2,fit=contain/f1743953932861x830930911576615000/tanstack_logo.webp" },
   { name: "TypeScript", logo: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/f1743953727293x355020015099832640/Typescript_logo_2020.svg" },
-  { name: "Xano", logo: "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fd58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io%2Ff1743954972895x343601029750799000%2Fxano-logo.avif?w=64&h=64&auto=compress&dpr=2&fit=max" }
+  { name: "React", logo: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/f1743953825930x966293244681417900/React-icon.svg" },
+  { name: "Bubble", logo: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/cdn-cgi/image/w=64,h=64,f=auto,dpr=2,fit=contain/f1743954355106x232441504701089060/bubble-logo.png" },
+  { name: "Cloudflare", logo: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/cdn-cgi/image/w=64,h=64,f=auto,dpr=2,fit=contain/f1743954637429x684379069250060600/cloudflare-workers-logo-png_seeklogo-444232.png" },
+  { name: "Next.js", logo: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/f1743954043060x424209555028934200/nextjs-icon-dark-background.svg" },
+  { name: "Node.js", logo: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/cdn-cgi/image/w=64,h=64,f=auto,dpr=2,fit=contain/f1743955045542x500418995156826300/node-js-icon-1817x2048-g8tzf91e.png" },
+  { name: "Xano", logo: "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fd58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io%2Ff1743954972895x343601029750799000%2Fxano-logo.avif?w=64&h=64&auto=compress&dpr=2&fit=max" },
+  { name: "Discord", logo: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/cdn-cgi/image/w=64,h=64,f=auto,dpr=2,fit=contain/f1743955180164x306016823989893060/discord-logo.png" },
+  { name: "Linear", logo: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/cdn-cgi/image/w=64,h=64,f=auto,dpr=2,fit=contain/f1743955247012x603501134911924100/linear-app-icon-logo-png_seeklogo-586481.png" },
+  { name: "Slack", logo: "https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/f1743953791829x929167476871797600/Slack_icon_2019.svg.png" },
 ];
 
-function ProjectCard({ project }: { project: typeof projects[0] }) {
+function ProjectCard({ project, onClick }: { project: typeof projects[0], onClick: () => void }) {
   return (
-    <div className="group relative bg-white rounded-3xl overflow-hidden hover:shadow-lg transition-all duration-300 fade-in-up">
+    <div 
+      className="group relative bg-white rounded-3xl overflow-hidden hover:shadow-lg transition-all duration-300 fade-in-up cursor-pointer"
+      onClick={onClick}
+    >
       <div className="aspect-[4/5] relative">
         <img 
           src={project.image} 
@@ -93,6 +124,9 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
             </span>
           </div>
           <div>
+            <p className="text-white/80 font-medium text-[16px]/tight mb-1">
+              {project.subtitle}
+            </p>
             <h4 className="text-white font-bold text-[28px]/tight">
               {project.title}
             </h4>
@@ -112,6 +146,81 @@ function TechItem({ tech }: { tech: typeof techStack[0] }) {
         className="w-14 h-14 rounded-lg object-contain"
       />
       <span className="font-bold text-lg text-gray-900">{tech.name}</span>
+    </div>
+  );
+}
+
+function ProjectModal({ project, isOpen, onClose }: { 
+  project: typeof projects[0] | null, 
+  isOpen: boolean, 
+  onClose: () => void 
+}) {
+  if (!isOpen || !project) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      {/* Backdrop */}
+      <div 
+        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+        onClick={onClose}
+      />
+      
+      {/* Modal */}
+      <div className="relative bg-white rounded-3xl p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          className="absolute top-6 right-6 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        {/* Project image */}
+        <div className="aspect-[16/10] rounded-2xl overflow-hidden mb-6">
+          <img 
+            src={project.image} 
+            alt={project.title}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Project content */}
+        <div className="space-y-6">
+          <div>
+            <p className="text-gray-600 font-medium mb-2">{project.subtitle}</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">{project.title}</h2>
+            
+            {/* Live project button - only show if URL exists and is not placeholder */}
+            {project.liveUrl && project.liveUrl !== "#" && project.liveUrl !== "" && (
+              <a 
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-xl transition-colors"
+              >
+                Go to live project
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            )}
+          </div>
+
+          {/* Role */}
+          <div>
+            <h3 className="text-lg font-bold text-gray-900 mb-2">My role</h3>
+            <p className="text-gray-700">{project.role}</p>
+          </div>
+
+          {/* Outcome */}
+          <div>
+            <h3 className="text-lg font-bold text-gray-900 mb-2">Outcome</h3>
+            <p className="text-gray-700 leading-relaxed">{project.outcome}</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -137,6 +246,19 @@ function CalendarEmbed() {
 
 
 export default function Home({ loaderData }: Route.ComponentProps) {
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openProjectModal = (project: typeof projects[0]) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const closeProjectModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-6xl mx-auto p-6">
@@ -173,7 +295,9 @@ export default function Home({ loaderData }: Route.ComponentProps) {
             {/* Social Links */}
             <div className="flex gap-3">
               <a 
-                href="#" 
+                href="https://x.com/facundolucci" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 bg-gray-100 hover:bg-gray-200 rounded flex items-center justify-center transition-colors"
               >
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -181,7 +305,9 @@ export default function Home({ loaderData }: Route.ComponentProps) {
                 </svg>
               </a>
               <a 
-                href="#" 
+                href="https://www.linkedin.com/in/facundolucci/" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 bg-gray-100 hover:bg-gray-200 rounded flex items-center justify-center transition-colors"
               >
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -196,7 +322,11 @@ export default function Home({ loaderData }: Route.ComponentProps) {
         <div className="mb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+              <ProjectCard 
+                key={project.id} 
+                project={project} 
+                onClick={() => openProjectModal(project)}
+              />
             ))}
           </div>
         </div>
@@ -230,6 +360,13 @@ export default function Home({ loaderData }: Route.ComponentProps) {
           </div>
         </div>
       </div>
+
+      {/* Project Modal */}
+      <ProjectModal 
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={closeProjectModal}
+      />
     </div>
   );
 }
