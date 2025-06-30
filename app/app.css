@@ -7,9 +7,128 @@
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  @apply bg-gray-50 text-gray-900;
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
+}
+
+/* Custom scrollbar for better UX */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Image optimization */
+img {
+  @apply select-none;
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+a:focus-visible {
+  @apply outline-2 outline-offset-2 outline-blue-500;
+}
+
+/* Animation for project cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Staggered animation delays for project cards */
+.fade-in-up:nth-child(1) { animation-delay: 0.1s; }
+.fade-in-up:nth-child(2) { animation-delay: 0.2s; }
+.fade-in-up:nth-child(3) { animation-delay: 0.3s; }
+.fade-in-up:nth-child(4) { animation-delay: 0.4s; }
+.fade-in-up:nth-child(5) { animation-delay: 0.5s; }
+.fade-in-up:nth-child(6) { animation-delay: 0.6s; }
+.fade-in-up:nth-child(7) { animation-delay: 0.7s; }
+
+/* Gradient text effect */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Project card effects */
+.transition {
+  transition: opacity 0.5s ease;
+}
+
+.blur {
+  backdrop-filter: blur(8px);
+}
+
+.faded-blur {
+  backdrop-filter: blur(65px);
+  mask: linear-gradient(rgb(0 0 0 / 0%) 33%, rgb(0 0 0 / 100%) 75%);
+}
+
+.fade {
+  mask: linear-gradient(rgb(0 0 0 / 100%) 50%, rgb(0 0 0 / 10%) 100%);
+}
+
+.overflow-visible {
+  overflow: visible !important;
+}
+
+/* Responsive zoom for larger screens */
+@media (min-width: 1020px) {
+  body {
+    zoom: 1.4;
+  }
+}
+
+/* Cal.com calendar embed styles */
+#my-cal-inline {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Ensure Cal.com iframe is responsive */
+#my-cal-inline iframe {
+  width: 100% !important;
+  min-height: 400px;
+  border: none;
+  border-radius: 12px;
+}
+
+/* Hide scrollbars on Cal.com container for cleaner look */
+#my-cal-inline::-webkit-scrollbar {
+  display: none;
+}
+
+#my-cal-inline {
+  scrollbar-width: none;
 }

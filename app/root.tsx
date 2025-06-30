@@ -21,6 +21,7 @@ export const links: Route.LinksFunction = () => [
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
   },
+  { rel: "icon", href: "/favicon.ico" },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -29,10 +30,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="author" content="Facundo" />
+        <meta name="keywords" content="full-stack developer, React, TypeScript, Cloudflare, no-code, Bubble" />
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="font-sans antialiased bg-gray-50 text-gray-900">
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -43,6 +46,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return <Outlet />;
+}
+
+export function HydrateFallback() {
+  return (
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="text-center">
+        <div className="w-16 h-16 mx-auto mb-4 border-4 border-gray-300 border-t-blue-600 rounded-full animate-spin"></div>
+        <p className="text-gray-600 text-lg font-medium">Loading...</p>
+      </div>
+    </div>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
@@ -63,11 +77,11 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
 
   return (
     <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
-      <p>{details}</p>
+      <h1 className="text-2xl font-bold mb-4">{message}</h1>
+      <p className="text-gray-600 mb-4">{details}</p>
       {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
-          <code>{stack}</code>
+        <pre className="w-full p-4 overflow-x-auto bg-gray-100 rounded">
+          <code className="text-sm">{stack}</code>
         </pre>
       )}
     </main>
