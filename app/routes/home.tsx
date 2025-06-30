@@ -76,7 +76,7 @@ const techStack = [
 
 function ProjectCard({ project }: { project: typeof projects[0] }) {
   return (
-    <div className="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 fade-in-up">
+    <div className="group relative bg-white rounded-3xl overflow-hidden hover:shadow-lg transition-all duration-300 fade-in-up">
       <div className="aspect-[4/5] relative">
         <img 
           src={project.image} 
@@ -86,14 +86,14 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
         {/* Faded blur overlay - matches original design */}
         <div className="absolute inset-0 faded-blur" />
         {/* Content overlay */}
-        <div className="absolute inset-0 flex flex-col justify-between p-6">
+        <div className="absolute inset-0 flex flex-col justify-between p-4">
           <div className="flex justify-start">
-            <span className="bg-white/90 text-black font-semibold px-3 py-1.5 rounded-xl text-sm backdrop-blur-sm">
+            <span className="bg-white/80 text-black font-semibold px-3 pt-1.5 pb-[5px] rounded-xl text-[16px]/tight backdrop-blur-sm backdrop-brightness-150 backdrop-saturate-200">
               {project.type}
             </span>
           </div>
           <div>
-            <h4 className="text-white font-bold text-xl leading-tight">
+            <h4 className="text-white font-bold text-[28px]/tight">
               {project.title}
             </h4>
           </div>
@@ -139,13 +139,13 @@ function CalendarEmbed() {
 export default function Home({ loaderData }: Route.ComponentProps) {
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-6xl mx-auto px-6 py-12">
+      <div className="max-w-6xl mx-auto p-6">
         
         {/* Hero Section */}
-        <div className="flex flex-col lg:flex-row gap-12 mb-16">
+        <div className="flex flex-col lg:flex-row gap-6 mb-6">
           {/* Profile Image */}
           <div className="lg:w-1/3">
-            <div className="bg-white p-6 rounded-3xl shadow-sm">
+            <div className="bg-white p-6 rounded-3xl">
               <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-lg">
                 <img 
                   src="https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/cdn-cgi/image/w=384,h=535,f=auto,dpr=2,fit=cover/f1743960916665x935507394094287500/IMG_0406.PNG"
@@ -157,9 +157,9 @@ export default function Home({ loaderData }: Route.ComponentProps) {
           </div>
           
           {/* Bio */}
-          <div className="lg:w-2/3 bg-white rounded-3xl p-8 shadow-sm">
-                         <h1 className="text-5xl font-bold text-gray-900 mb-6">I'm <span className="gradient-text">Facundo</span></h1>
-            <div className="text-xl text-gray-700 leading-relaxed mb-8 space-y-2">
+          <div className="lg:w-2/3 bg-white rounded-3xl p-8">
+                         <h1 className="text-[44px]/8 font-bold text-gray-900 mb-6">I'm <span className="gradient-text">Facundo</span></h1>
+            <div className="text-2xl/snug font-bold text-neutral-500  mb-8 space-y-2">
               <p>
                 <span className="font-bold text-gray-900">I love building</span> things. I started creating music as a teen. 
                 Graduated from <span className="font-bold text-gray-900">Peabody</span>. Landed in the family food business. 
@@ -204,10 +204,12 @@ export default function Home({ loaderData }: Route.ComponentProps) {
         {/* Tech Stack Section */}
         <div className="relative bg-gray-100 rounded-3xl p-8 mb-16 overflow-hidden">
           <div 
-            className="absolute inset-0 opacity-10"
+            className="absolute inset-0 opacity-20"
             style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-opacity='0.4'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3C/g%3E%3C/svg%3E")`,
-              backgroundRepeat: 'repeat'
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='44' height='44' viewBox='0 0 44 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-opacity='1'%3E%3Ccircle cx='22' cy='22' r='1.5'/%3E%3C/g%3E%3C/svg%3E")`,
+              backgroundRepeat: 'repeat',
+              backgroundPosition: 'center',
+              boxShadow: 'rgb(240, 240, 240) 0px 0px 64px 56px inset'
             }}
           />
           <div className="relative">
