@@ -146,7 +146,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
           {/* Profile Image */}
           <div className="lg:w-1/3">
             <div className="bg-white p-6 rounded-3xl">
-              <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-lg">
+              <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-lg shadow-rose-300/50">
                 <img 
                   src="https://d58598f532bf88feb4dc126f96ffb5af.cdn.bubble.io/cdn-cgi/image/w=384,h=535,f=auto,dpr=2,fit=cover/f1743960916665x935507394094287500/IMG_0406.PNG"
                   alt="Facundo"
